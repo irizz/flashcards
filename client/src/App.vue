@@ -1,14 +1,14 @@
 <template>
   <div id="app">
+    <h1>Flashcards</h1>
+    <hr />
+    <router-view />
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'app',
-  components: {
-  }
 }
 </script>
 
