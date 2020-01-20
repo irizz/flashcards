@@ -39,7 +39,7 @@
     </b-row>
     <b-row align-h="center" class="start-quiz">
       <b-col lg="6">
-        <b-button block variant="primary">Start quiz</b-button>
+        <b-button block variant="primary" @click="handleStartQuizClick">Start quiz</b-button>
       </b-col>
     </b-row>
   </div>
@@ -84,6 +84,9 @@ export default {
         answer: cardObj.answer,
         level: 1
       });
+    },
+    handleStartQuizClick() {
+      this.$router.push("/quiz");
     }
   }
 };
