@@ -2,30 +2,24 @@
   <div>
     <small v-bind:class="{card}">
       {{card.id}}
-      {{card.question | uppercase}}
+      {{card.question}}
     </small>
   </div>
 </template>
 
 <script>
-  export default {
-    props: {
-      card: {
-        type: Object,
-        required: true
-      }
-    },
-    filters: {
-    uppercase(value) {
-      console.log(value);
-      return value;
+export default {
+  props: {
+    card: {
+      type: Object,
+      required: true
     }
   }
-  }
+};
 </script>
 
 <style scoped>
-  .card {
-    color: red;
-  }
+.card {
+  color: red;
+}
 </style>

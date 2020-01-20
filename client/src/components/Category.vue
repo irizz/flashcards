@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Category</h2>
+    <h2>{{currCategoryName}}</h2>
     <router-link to="/">Return</router-link>
     <AddCard @add-card="addCard" />
     <Box v-bind:cards="cardsLevel2" />
@@ -16,6 +16,9 @@ export default {
   components: {
     AddCard,
     Box
+  },
+  beforeMount: function() {
+    this.currCategoryName = this.$store.state.currCategoryName;
   },
   data() {
     return {
@@ -33,6 +36,7 @@ export default {
           level: "2"
         }
       ],
+      currCategoryName: ""
     };
   },
   computed: {
