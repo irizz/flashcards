@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/category">Return</router-link>
+    <router-link to="/category">Back to current category</router-link>
     <b-row align-h="center">
       <Card v-for="(card,key) of cards" v-bind:card="card" v-bind:key="key" />
     </b-row>

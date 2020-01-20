@@ -3,7 +3,7 @@
     <b-row align-h="center">
       <b-col lg="6">
         <h2>{{currCategoryName}}</h2>
-        <router-link to="/">Return</router-link>
+        <router-link to="/">Back to all categories</router-link>
       </b-col>
     </b-row>
     <b-row class="add-card" align-h="center">
@@ -12,7 +12,7 @@
       </b-col>
     </b-row>
     <b-row align-h="center">
-      <b-col lg="3">
+      <b-col lg="2">
         <Box
           v-bind:boxName="'Know bad'"
           v-bind:cards="cardsLevel1"
@@ -20,7 +20,7 @@
           class="cards-box"
         />
       </b-col>
-      <b-col lg="3">
+      <b-col lg="2">
         <Box
           v-bind:boxName="'Know mediocre'"
           v-bind:cards="cardsLevel2"
@@ -28,13 +28,18 @@
           class="cards-box"
         />
       </b-col>
-      <b-col lg="3">
+      <b-col lg="2">
         <Box
           v-bind:boxName="'Know good'"
           v-bind:cards="cardsLevel3"
           v-bind:bg="'success'"
           class="cards-box"
         />
+      </b-col>
+    </b-row>
+    <b-row align-h="center" class="start-quiz">
+      <b-col lg="6">
+        <b-button block variant="primary">Start quiz</b-button>
       </b-col>
     </b-row>
   </div>
@@ -87,10 +92,13 @@ export default {
 <style>
 .add-card {
   margin-top: 2%;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
 }
 .cards-box:hover {
   cursor: pointer;
   color: #007bff;
+}
+.start-quiz {
+  margin-top: 4%;
 }
 </style>
