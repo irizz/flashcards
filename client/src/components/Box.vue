@@ -1,18 +1,22 @@
 <template>
   <div>
-    <p>This is some box</p>
-    <CardsList v-bind:cards="cards" />
+    <b-card @click="handleBoxClick" :border-variant="bg">
+      {{boxName}}
+      (
+      {{cards.length}}
+      )
+    </b-card>
   </div>
 </template>
 
 <script>
-  import CardsList from "@/components/CardsList"
-  export default {
-    props: [
-      "cards"
-    ],
-    components: {
-      CardsList
+export default {
+  props: ["cards", "boxName", "bg"],
+  methods: {
+    handleBoxClick() {
+      this.$store.commit("setCurrCards", this.cards);
+      this.$router.push("/cards-list");
     }
   }
+};
 </script>

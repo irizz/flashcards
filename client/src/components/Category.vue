@@ -6,20 +6,35 @@
         <router-link to="/">Return</router-link>
       </b-col>
     </b-row>
-    <b-row align-h="center">
+    <b-row class="add-card" align-h="center">
       <b-col lg="6">
         <AddCard @add-card="addCard" />
       </b-col>
     </b-row>
     <b-row align-h="center">
       <b-col lg="3">
-        <Box v-bind:cards="cardsLevel1" />
+        <Box
+          v-bind:boxName="'Know bad'"
+          v-bind:cards="cardsLevel1"
+          v-bind:bg="'danger'"
+          class="cards-box"
+        />
       </b-col>
       <b-col lg="3">
-        <Box v-bind:cards="cardsLevel2" />
+        <Box
+          v-bind:boxName="'Know mediocre'"
+          v-bind:cards="cardsLevel2"
+          v-bind:bg="'warning'"
+          class="cards-box"
+        />
       </b-col>
       <b-col lg="3">
-        <Box v-bind:cards="cardsLevel3" />
+        <Box
+          v-bind:boxName="'Know good'"
+          v-bind:cards="cardsLevel3"
+          v-bind:bg="'success'"
+          class="cards-box"
+        />
       </b-col>
     </b-row>
   </div>
@@ -35,23 +50,11 @@ export default {
   },
   beforeMount: function() {
     this.currCategoryName = this.$store.state.currCategoryName;
+    this.cards = this.$store.state.cards;
   },
   data() {
     return {
-      cards: [
-        {
-          id: 1,
-          question: "This is question",
-          answer: "This is answer",
-          level: "3"
-        },
-        {
-          id: 2,
-          question: "This is another question",
-          answer: "This is another answer",
-          level: "2"
-        }
-      ],
+      cards: [],
       currCategoryName: ""
     };
   },
@@ -74,9 +77,20 @@ export default {
         id: lastIdx + 1,
         question: cardObj.question,
         answer: cardObj.answer,
-        level: 3
+        level: 1
       });
     }
   }
 };
 </script>
+
+<style>
+.add-card {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.cards-box:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+</style>
